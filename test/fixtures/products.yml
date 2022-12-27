@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+PS4:
+  title: PS4
+  description: En buen estado
+  price: 80
+
+Wii:
+  title: Nintendo Wii
+  description: Sin mandos
+  price: 50

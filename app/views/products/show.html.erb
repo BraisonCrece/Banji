@@ -1,0 +1,6 @@
+<h2 class="title"><%= @product.title %></h2>
+<p class="description"><%= @product.description %></p>
+<p class="price"><%= @product.price %>€</p>
+
+<%= link_to "Editar", edit_product_path(@product) %>
+<%= link_to "Eliminar", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Estás seguro de que deseas eliminar este producto?" } %>
