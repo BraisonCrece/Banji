@@ -1,5 +1,5 @@
 <%= form_with model: product, class: 'formulario' do |form| %>
-    <% @product.errors.full_messages.each do |error|  %>
+    <% product.errors.full_messages.each do |error|  %>
         <p class="error_message"><%= error %></p>
     <% end %>
     <div>
@@ -13,6 +13,10 @@
     <div>
         <%= form.label :price, "Precio" %>
         <%= form.number_field :price %>
+    </div>
+    <div>
+        <%= form.label :images, "Fotos" %>
+        <%= form.file_field :images, multiple: true %>
     </div>
     <%= form.submit submit_message %>
 <% end %>

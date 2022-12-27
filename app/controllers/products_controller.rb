@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
-    @products = Product.all
+    @products = Product.all.with_attached_images
   end
 
   def new
@@ -17,16 +19,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = Product.find(params[:id])    
   end
 
   def update
-    product = Product.find(params[:id])
-    if product.update(product_params)
+    if @product.update(product_params)
       redirect_to root_path, notice: "Producto actualizado con éxito"
     else
       render :edit, status: :unprocessable_entity
@@ -34,16 +33,19 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    if product.destroy!
-      redirect_to root_path, alert: "Producto eliminado con éxito"
+    if @product.destroy!
+      redirect_to root_path, alert: "Producto eliminado con éxito", status: :see_other
     end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price)
+    params.require(:product).permit(:title, :description, :price, images: [])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
   
 end
