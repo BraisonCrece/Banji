@@ -1,0 +1,47 @@
+es:
+  activerecord:
+    errors:
+      models:
+        product:
+          attributes:
+            title:
+              blank: no puede estar vacío
+            description:
+              blank: no puede estar vacía
+            price:
+              blank: no puede estar vacío
+            # images:
+    models:
+      product: Producto
+    attributes:
+      product:
+        title: Título
+        description: Descripción
+        price: Precio
+        images: Imágenes
+  products:
+    edit:
+      title: Editar producto
+      submit: Actualizar producto
+    new:
+      add: Añadir producto
+      submit: Añadir producto
+    create: 
+      created: Producto agregado con éxito
+    update:
+      updated: Producto actualizado con éxito
+    destroy:
+      deleted: Producto eliminado con éxito
+  common: 
+    form:
+      title: Título
+      description: Descripción
+      price: Precio
+      images: Imágenes
+      add_images_button: Add
+    links:
+      edit: Editar
+      delete: Eliminar
+      delete_confirm: Estás seguro de que deseas eliminar este producto?
+      new: Añadir producto
+      see_more: Ver más

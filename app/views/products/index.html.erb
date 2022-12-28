@@ -1,14 +1,3 @@
 <h1>Productos:</h1>
 
-<% @products.each do |product| %>
-    <div class="product">
-        <div class="product_image">
-            <%= image_tag product.images[0], width: "150px", style: "border-radius: 7.5px" if product.images.attached? %>            
-        </div>
-        <h2><%= product.title %></h2>
-        <p><%= product.price %>€</p>
-        <%= link_to 'ver más', product_path(product) %>
-    </div>
-<% end %>
-
 <%= render partial: 'product', collection: @products %>

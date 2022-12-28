@@ -3,20 +3,22 @@
         <p class="error_message"><%= error %></p>
     <% end %>
     <div>
-        <%= form.label :title, "Título" %>
+        <%= form.label :title %> 
         <%= form.text_field :title %>
     </div>
     <div>
-        <%= form.label :description, "Description" %>
+        <%= form.label :description %>
         <%= form.text_area :description %>
     </div>
     <div>
-        <%= form.label :price, "Precio" %>
+        <%= form.label :price %>
         <%= form.number_field :price %>
     </div>
     <div>
-        <%= form.label :images, "Fotos" %>
-        <%= form.file_field :images, multiple: true %>
+        <%= form.label :images %>
+        <%= form.file_field :images, multiple: true do %>
+            <%= t('common.form.add_images_button')  %>
+        <% end %>
     </div>
     <%= form.submit submit_message %>
 <% end %>

@@ -1,3 +1,3 @@
-<h2>Editar producto</h2>
+<h2><%= t('.title') %></h2>
 
-<%= render partial: "form", locals: { product: @product, submit_message: "Actualizar producto"} %>
+<%= render partial: "form", locals: { product: @product, submit_message: t('.submit')} %>
