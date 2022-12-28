@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
         params[:order_by]
       @products = SearchService.search(@products, params)
     end
+    @pagy, @products = pagy_countless(@products, items: 12)
   end
 
   def new

@@ -4,21 +4,21 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'render a list of products' do
     get products_path
     assert_response :success
-    assert_select '.product', 3
-    assert_select '.category', 3
+    assert_select '.product', 12
+    assert_select '.category', 9
   end
 
   test 'render a list of products filtered by category' do
     get products_path(category_id: categories(:sports).id)
     assert_response :success
-    assert_select '.product', 1
-    assert_select '.category', 3
+    assert_select '.product', 4
+    assert_select '.category', 9
   end
 
   test 'render a list of products filtered by min_price' do
     get products_path(min_price: 80)      
     assert_response :success
-    assert_select '.product', 2
+    assert_select '.product', 12
     assert_select 'h2', 'PS4'
     assert_select 'h2', 'Bicicleta de montaña'
   end
@@ -26,14 +26,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'render a list of products filtered by max_price' do
     get products_path(max_price: 60)
     assert_response :success
-    assert_select '.product', 1
+    assert_select '.product', 6
     assert_select 'h2', 'Nintendo Wii'
   end
 
   test 'render a list of products filtered by min_price and max_price' do
     get products_path(min_price: 80, max_price: 100)    
     assert_response :success
-    assert_select '.product', 1
+    assert_select '.product', 5
     assert_select 'h2', 'PS4'
   end
 
@@ -47,13 +47,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'render a list of products sorted by cheapest' do
     get products_path(order_by: 'cheapest')    
     assert_response :success
-    assert_select '.products .product:first-child h2', 'Nintendo Wii'
+    assert_select '.products .product:first-child h2', 'El hobbit'
   end
 
   test 'render a list of products sorted by most expensive' do
     get products_path(order_by: 'expensive')    
     assert_response :success
-    assert_select '.products .product:first-child h2', 'Bicicleta de montaña'
+    assert_select '.products .product:first-child h2', 'Seat Panda clásico'
   end
 
   test 'render a list of products sorted by newest, with query params' do

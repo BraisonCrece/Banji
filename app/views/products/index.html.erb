@@ -1,5 +1,5 @@
 <%= DateTime.now %>
-<%= turbo_frame_tag 'Products' do %>
+<%= turbo_frame_tag 'home' do %>
   <h1><%= t('.title') %></h1>
   <%= form_with url: products_path, 
       method: :get, 
@@ -16,9 +16,14 @@
       {},
       { onChange: "this.form.requestSubmit()"} %>
   <% end %>
-  <%= link_to t('.all'), products_path %>
-  <%= render partial: 'category', collection: @categories %>
+  <div class="categories" style="display: flex; gap: 1.5rem">
+    <%= link_to t('.all'), products_path %>
+    <%= render partial: 'category', collection: @categories %>
+  </div>
   <div class="products">
-    <%= render partial: 'product', collection: @products %>
+    <%= turbo_frame_tag "products-#{@pagy.page}", class: 'products' do %>
+      <%= render partial: 'product', collection: @products %>
+      <%= turbo_frame_tag "products-#{@pagy.next}", class: 'products', src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next %>
+    <% end %>
   </div>
 <% end %>
