@@ -1,34 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   activerecord:
     errors:
@@ -51,6 +20,8 @@ en:
         price: Price
         images: Images
   products:
+    index:
+      title: Products
     edit:
       title: Edit product
       submit: Update product
@@ -58,11 +29,27 @@ en:
       add: Add product
       submit: Add product
     create: 
-      created: Product created successfully
+      created: Product was successfully created
     update:
-      updated: Product updated successfully
+      updated: Product was successfully updated
     destroy:
-      deleted: Product deleted successfully
+      deleted: Product was successfully deleted
+  categories:
+    index:
+      title: Categories
+    edit:
+      title: Edit category
+      submit: Update category
+    new:
+      title: Add category
+      add: Add category
+      submit: Add category
+    create: 
+      created: Category was successfully created
+    update:
+      updated: Category was successfully updated
+    destroy:
+      deleted: Category was successfully deleted
   common: 
     form:
       title: Title
@@ -73,8 +60,10 @@ en:
     links:
       edit: Edit
       delete: Delete
-      delete_confirm: Are you sure you want to delete this product?
-      new: Add product
+      delete_confirm: Are you sure?
+      # cambiar esto y moverlos para su respectico padre
+      new_product: Add product
+      new_category: Add category
+      categories: Categories
       see_more: See more
-  file:
     

@@ -1,0 +1,26 @@
+<div id="<%= dom_id category %>">
+    <strong>Name:</strong>
+    <%= category.name %>
+    <%= link_to t('common.links.edit'), edit_category_path(category) %>
+    <%= link_to t('common.links.delete'), category_path(category), data: { turbo_method: :delete, turbo_confirm: t('common.links.delete_confirm') } %>
+</div><% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
