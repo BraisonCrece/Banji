@@ -60,8 +60,12 @@ es:
       edit: Editar
       delete: Eliminar
       delete_confirm: Estás seguro?
+<<<<<<< HEAD
       # cambiar esto y moverlos para su respectico padre
       new_product: Añadir producto
       new_category: Añadir categoría
       categories: Categorías
+=======
+      new: Añadir producto
+>>>>>>> 209f955f9ac86684e6ff37dfec68ad2bc24daef4
       see_more: Ver más
