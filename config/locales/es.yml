@@ -20,6 +20,8 @@ es:
         price: Precio
         images: Imágenes
   products:
+    index:
+      title: Productos
     edit:
       title: Editar producto
       submit: Actualizar producto
@@ -32,6 +34,21 @@ es:
       updated: Producto actualizado con éxito
     destroy:
       deleted: Producto eliminado con éxito
+  categories:
+    index:
+      title: Categorías
+    edit:
+      title: Editar categoría
+      submit: Actualizar categoría
+    new:
+      add: Añadir categoría
+      submit: Añadir categoría
+    create: 
+      created: categoría creada con éxito
+    update:
+      updated: categoría actualizada con éxito
+    destroy:
+      deleted: categoría eliminada con éxito
   common: 
     form:
       title: Título
@@ -42,6 +59,6 @@ es:
     links:
       edit: Editar
       delete: Eliminar
-      delete_confirm: Estás seguro de que deseas eliminar este producto?
+      delete_confirm: Estás seguro?
       new: Añadir producto
       see_more: Ver más
