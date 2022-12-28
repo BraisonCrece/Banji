@@ -4,8 +4,16 @@ PS4:
   title: PS4
   description: En buen estado
   price: 80
+  category: videogames
 
 Wii:
   title: Nintendo Wii
   description: Sin mandos
   price: 50
+  category: videogames
+
+Bike:
+  title: Bicicleta de montaña
+  description: Sin ruedas
+  price: 250
+  category: sports

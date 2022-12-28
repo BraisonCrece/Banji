@@ -2,7 +2,11 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all.with_attached_images
+    @categories = Category.order(:name).load_async
+    @products = Product.with_attached_images.order(created_at: :desc).load_async
+    if params[:category_id] || params[:min_price].present? || params[:max_price].present? || params[:query_text].present?
+      @products = SearchService.search(@products, params) 
+    end
   end
 
   def new
@@ -41,7 +45,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, images: [])
+    params.require(:product).permit(:title, :description, :price, :category_id, images: [])
   end
 
   def set_product

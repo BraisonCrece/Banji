@@ -19,9 +19,15 @@ en:
         description: Description
         price: Price
         images: Images
+        category_id: Category
   products:
     index:
       title: Products
+      all: All
+      max_price: Max price
+      min_price: Min price
+      submit_price_filter: Price filter
+      query_text: What are you looking for?
     edit:
       title: Edit product
       submit: Update product
@@ -61,14 +67,9 @@ en:
       edit: Edit
       delete: Delete
       delete_confirm: Are you sure?
-<<<<<<< HEAD
       # cambiar esto y moverlos para su respectico padre
       new_product: Add product
       new_category: Add category
       categories: Categories
-=======
-      new_product: Add product
-      new_category: Add category
->>>>>>> 209f955f9ac86684e6ff37dfec68ad2bc24daef4
       see_more: See more
     
