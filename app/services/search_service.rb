@@ -12,6 +12,11 @@ class SearchService
     if params[:query_text].present?
       products = products.search_by_keyword(params[:query_text])
     end
-    products
+    sort(products, params)
+  end
+
+  def self.sort(products, params)
+    order = Product::ORDER_BY.fetch(params[:order_by], Product::ORDER_BY['newest'])
+    products = products.order(order)
   end
 end

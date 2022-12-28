@@ -3,9 +3,13 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Category.order(:name).load_async
-    @products = Product.with_attached_images.order(created_at: :desc).load_async
-    if params[:category_id] || params[:min_price].present? || params[:max_price].present? || params[:query_text].present?
-      @products = SearchService.search(@products, params) 
+    @products = SearchService.sort(Product.with_attached_images.load_async, params)
+    if  params[:category_id] || 
+        params[:min_price].present? || 
+        params[:max_price].present? || 
+        params[:query_text].present? || 
+        params[:order_by]
+      @products = SearchService.search(@products, params)
     end
   end
 

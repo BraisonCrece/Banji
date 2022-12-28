@@ -44,6 +44,25 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', 'PS4'
   end
 
+  test 'render a list of products sorted by cheapest' do
+    get products_path(order_by: 'cheapest')    
+    assert_response :success
+    assert_select '.products .product:first-child h2', 'Nintendo Wii'
+  end
+
+  test 'render a list of products sorted by most expensive' do
+    get products_path(order_by: 'expensive')    
+    assert_response :success
+    assert_select '.products .product:first-child h2', 'Bicicleta de montaña'
+  end
+
+  test 'render a list of products sorted by newest, with query params' do
+    get products_path(order_by: 'newest', query_text: 'PS4', min_price: 80, max_price: 100)    
+    assert_response :success
+    assert_select '.product', 1
+    assert_select 'h2', 'PS4'
+  end
+
   test 'render a detailed product' do
     get product_url(products(:PS4))
     assert_response :success

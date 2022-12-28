@@ -28,6 +28,9 @@ es:
       min_price: Precio mínimo
       submit_price_filter: Filtrar por precio
       query_text: Que estás buscando?
+      newest: Recientes primero
+      cheapest: Más baratos primero
+      expensive: Más caros primero
     edit:
       title: Editar producto
       submit: Actualizar producto
