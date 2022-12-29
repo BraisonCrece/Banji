@@ -19,4 +19,10 @@ class Authentication::SessionsControllerTest < ActionDispatch::IntegrationTest
     post sessions_url, params: { login: @user.username , password: 'testme' }
     assert_redirected_to products_url
   end
+
+  test "should logout an user" do
+    delete session_url(@user)
+    assert_redirected_to products_url
+    assert_equal flash[:notice], 'Hasta luego!'
+  end
 end
