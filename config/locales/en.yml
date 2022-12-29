@@ -1,4 +1,6 @@
 en:
+  app_name: SellBuy
+  meta_description: Buy and sell second hand products
   activerecord:
     errors:
       models:
@@ -20,6 +22,10 @@ en:
         price: Price
         images: Images
         category_id: Category
+  authentication:
+    users:
+      create:
+        created: 'User has been created' 
   products:
     index:
       title: Products

@@ -5,6 +5,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     @category = categories(:clothes)
   end
 
+  test "should not create category without name" do
+    assert_no_difference("Category.count") do
+      post categories_url, params: { category: { name: "" } }
+    end
+  end
+  
   test "should get index" do
     get categories_url
     assert_response :success

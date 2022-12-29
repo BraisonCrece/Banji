@@ -1,7 +1,20 @@
 es:
+  app_name: Banji
+  meta_description: Compra y vende productos de segunda mano
   activerecord:
     errors:
       models:
+        user: 
+          attributes:
+            username:
+              invalid: solo puede contener letras y números (longitud entre 5 y 15 caracteres)
+              blank: es obligatorio
+            email: 
+              invalid: debe ser un email válido
+              blank: es obligatorio
+            password:
+              invalid: debe tener almenos 6 caracteres
+              blank: es obligatorio
         product:
           attributes:
             title:
@@ -20,6 +33,14 @@ es:
         price: Precio
         images: Imágenes
         category_id: Categoría
+      user:
+        username: Nombre de usuario
+        email: Email
+        password: Contraseña
+  authentication:
+    users:
+      create:
+        created: 'Usuario registrado :D' 
   products:
     index:
       title: Productos

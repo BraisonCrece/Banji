@@ -3,15 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @categories = Category.order(:name).load_async
-    @products = SearchService.sort(Product.with_attached_images.load_async, params)
-    if  params[:category_id] || 
-        params[:min_price].present? || 
-        params[:max_price].present? || 
-        params[:query_text].present? || 
-        params[:order_by]
-      @products = SearchService.search(@products, params)
-    end
-    @pagy, @products = pagy_countless(@products, items: 12)
+    @pagy, @products = pagy_countless(FindProducts.new.call(product_filter_params), items: 12)
   end
 
   def new
@@ -51,6 +43,10 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_id, images: [])
+  end
+
+  def product_filter_params
+    params.permit(:min_price, :max_price, :query_text, :order_by, :category_id)
   end
 
   def set_product
