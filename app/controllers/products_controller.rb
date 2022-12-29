@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   skip_before_action :protect_pages, only: [:index, :show]
+  
   def index
     @categories = Category.order(:name).load_async
     @pagy, @products = pagy_countless(FindProducts.new.call(product_filter_params), items: 12)
@@ -23,9 +24,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    authorize! @product
   end
 
   def update
+    authorize! @product
     if @product.update(product_params)
       redirect_to root_path, notice: t('.updated')
     else
@@ -34,6 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    authorize! @product
     if @product.destroy!
       redirect_to root_path, alert: t('.deleted'), status: :see_other
     end

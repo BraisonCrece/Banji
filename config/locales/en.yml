@@ -98,6 +98,7 @@ en:
       register: Register
       log_out: Log out
   common:
+    not_authorized: You don't have pemission to do this action
     not_logged_in: You have to login or create an account
     form:
       title: Title

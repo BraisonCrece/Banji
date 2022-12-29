@@ -102,6 +102,7 @@ es:
       register: Registro
       log_out: Cerrar sesión
   common:
+    not_authorized: No tienes permiso para hacer eso
     not_logged_in: Debes de loguearte o crear una cuenta primero
     form:
       title: Título
