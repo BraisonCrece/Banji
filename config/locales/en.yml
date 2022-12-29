@@ -4,6 +4,17 @@ en:
   activerecord:
     errors:
       models:
+        user: 
+          attributes:
+            username:
+              invalid: must contain only letters and numbers (min length 6 characters)
+              blank: is required
+            email: 
+              invalid: must be a valid email
+              blank: is required
+            password:
+              invalid: must have at least 6 characters
+              blank: is required
         product:
           attributes:
             title:
@@ -15,6 +26,7 @@ en:
             # images:
     models:
       product: Product
+      user: User
     attributes:
       product:
         title: Title
@@ -22,10 +34,18 @@ en:
         price: Price
         images: Images
         category_id: Category
+      user:
+        username: Username
+        email: Email
+        password: Password
   authentication:
     users:
       create:
         created: 'User has been created' 
+    sessions:
+      create:
+        created: Welcome!
+        failed: Invalid login 
   products:
     index:
       title: Products
@@ -65,7 +85,11 @@ en:
       updated: Category was successfully updated
     destroy:
       deleted: Category was successfully deleted
-  common: 
+  users:
+    create:
+      created: You are registered correctly!
+  common:
+    not_logged_in: You have to login or create an account
     form:
       title: Title
       description: Description

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :protect_pages, only: [:index, :show]
   def index
     @categories = Category.order(:name).load_async
     @pagy, @products = pagy_countless(FindProducts.new.call(product_filter_params), items: 12)

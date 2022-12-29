@@ -26,6 +26,7 @@ es:
             # images:
     models:
       product: Producto
+      user: Usuario
     attributes:
       product:
         title: Título
@@ -40,7 +41,11 @@ es:
   authentication:
     users:
       create:
-        created: 'Usuario registrado :D' 
+        created: Usuario registrado :D 
+    sessions:
+      create:
+        created: Bienvenido!
+        failed: Login inválido
   products:
     index:
       title: Productos
@@ -79,7 +84,11 @@ es:
       updated: categoría actualizada con éxito
     destroy:
       deleted: categoría eliminada con éxito
-  common: 
+  users:
+    create:
+      created: Te has registrado correctamente!
+  common:
+    not_logged_in: Debes de loguearte o crear una cuenta primero
     form:
       title: Título
       description: Descripción

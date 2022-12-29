@@ -1,0 +1,13 @@
+<%= form_with url: sessions_path, class: 'formulario' do |form| %>
+  <div>
+    <%= form.label :login %>
+    <%= form.text_field :login %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
