@@ -1,7 +1,10 @@
 class Product < ApplicationRecord
   include PgSearch::Model
   validates :title, :description, :price, presence: true
+  
   belongs_to :category
+  
+  belongs_to :user, default: -> { Current.user }
 
   pg_search_scope :search_by_keyword, against: [:title, :description], using: { tsearch: { prefix: true } }
 
