@@ -1,7 +1,7 @@
 require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
-  def setup 
+  setup do 
     login
   end
   

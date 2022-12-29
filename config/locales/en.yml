@@ -45,7 +45,9 @@ en:
     sessions:
       create:
         created: Welcome!
-        failed: Invalid login 
+        failed: Invalid login
+      destroy:
+        log_out: See you later!
   products:
     index:
       title: Products
@@ -88,6 +90,13 @@ en:
   users:
     create:
       created: You are registered correctly!
+  shared:
+    header:
+      new_product: New product
+      categories: Categories
+      login: Login
+      register: Register
+      log_out: Log out
   common:
     not_logged_in: You have to login or create an account
     form:

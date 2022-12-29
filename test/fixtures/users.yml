@@ -9,3 +9,18 @@ maruxa:
   email: Maruxa@test.com
   username: maruxa
   password_digest: <%= BCrypt::Password.create('Abc123..', :cost => 5) %>
+
+marcos:
+  email: marcos@test.com
+  username: marcos
+  password_digest: <%= BCrypt::Password.create('Abc123..', :cost => 5) %>
+
+pedro:
+  email: pedro@test.com
+  username: pedro
+  password_digest: <%= BCrypt::Password.create('Abc123..', :cost => 5) %>
+
+andrea:
+  email: andrea@test.com
+  username: andrea
+  password_digest: <%= BCrypt::Password.create('Abc123..', :cost => 5) %>

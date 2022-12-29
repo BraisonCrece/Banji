@@ -46,6 +46,8 @@ es:
       create:
         created: Bienvenido!
         failed: Login inválido
+      destroy:
+        log_out: Hasta luego!
   products:
     index:
       title: Productos
@@ -87,6 +89,13 @@ es:
   users:
     create:
       created: Te has registrado correctamente!
+  shared:
+    header:
+      new_product: Añadir producto
+      categories: Categorías
+      login: Login
+      register: Registro
+      log_out: Cerrar sesión
   common:
     not_logged_in: Debes de loguearte o crear una cuenta primero
     form:
