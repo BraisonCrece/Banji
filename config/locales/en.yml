@@ -59,6 +59,8 @@ en:
       newest: Newest first
       cheapest: Cheapest first
       expensive: More expensive first
+    show:
+      view_more_products: View more products of %{username}
     edit:
       title: Edit product
       submit: Update product
@@ -98,6 +100,7 @@ en:
       register: Register
       log_out: Log out
   common:
+    error: page not found
     not_authorized: You don't have pemission to do this action
     not_logged_in: You have to login or create an account
     form:

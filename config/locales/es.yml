@@ -64,6 +64,8 @@ es:
       newest: Recientes primero
       cheapest: Más baratos primero
       expensive: Más caros primero
+    show:
+      view_more_products: Ver más productos de %{username}
     edit:
       title: Editar producto
       submit: Actualizar producto
@@ -102,6 +104,7 @@ es:
       register: Registro
       log_out: Cerrar sesión
   common:
+    error: Página no encontrada
     not_authorized: No tienes permiso para hacer eso
     not_logged_in: Debes de loguearte o crear una cuenta primero
     form:

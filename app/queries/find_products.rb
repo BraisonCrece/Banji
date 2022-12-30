@@ -7,7 +7,7 @@ class FindProducts
   end
 
   def call(params = {})
-    # if the call method is called without parameters, it will use an empty hash as default.
+    # if the method is called without parameters, it will use an empty hash as default.
     scoped = @products
     scoped = filter_by_category_id(scoped, params[:category_id])
     scoped = filter_by_min_price(scoped, params[:min_price])
