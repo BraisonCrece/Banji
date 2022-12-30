@@ -24,3 +24,7 @@ The base application is built with the following technologies:
 - **Authentication** (no gems) :heavy_check_mark:
 - **Authorization with policies** (no gems) :heavy_check_mark:
 - Better use and understanding of **routes** :heavy_check_mark:
+
+
+
+:hammer: __Currently working on it__ :hammer:
