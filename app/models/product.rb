@@ -24,10 +24,10 @@ class Product < ApplicationRecord
   end
 
   def unfavorite!
-    favorites.find_by(user: Current.user).destroy
+    favorite.destroy
   end
 
-  def favorite?
+  def favorite
     favorites.find_by(user: Current.user)
   end
 end
