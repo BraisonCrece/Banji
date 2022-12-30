@@ -1,7 +1,8 @@
 class FindProducts
   attr_reader :products
+
   def initialize(products = initial_scope)
-    # if an FindProducts object is initialized without a products argument, it will use the initial_scope method.  
+    # if an FindProducts object is initialized without a products argument, it will use the initial_scope method.
     @products = products
   end
 
@@ -9,9 +10,10 @@ class FindProducts
     # if the call method is called without parameters, it will use an empty hash as default.
     scoped = @products
     scoped = filter_by_category_id(scoped, params[:category_id])
-    scoped = filter_by_min_price(scoped, params[:min_price]) 
+    scoped = filter_by_min_price(scoped, params[:min_price])
     scoped = filter_by_max_price(scoped, params[:max_price])
     scoped = filter_by_query(scoped, params[:query_text])
+    scoped = filter_by_user_id(scoped, params[:user_id])
     scoped = sort(scoped, params[:order_by])
   end
 
@@ -43,9 +45,13 @@ class FindProducts
     scoped.search_by_keyword(query_text)
   end
 
-  def sort(scoped, order_by)
-    order = Product::ORDER_BY.fetch(order_by, Product::ORDER_BY['newest'])
-    scoped.order(order)
+  def filter_by_user_id(scoped, user_id)
+    return scoped unless user_id.present?
+    scoped.where(user_id: user_id)
   end
 
+  def sort(scoped, order_by)
+    order = Product::ORDER_BY.fetch(order_by, Product::ORDER_BY["newest"])
+    scoped.order(order)
+  end
 end
