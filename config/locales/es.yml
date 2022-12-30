@@ -66,6 +66,9 @@ es:
       expensive: Más caros primero
     show:
       view_more_products: Ver más productos de %{username}
+      edit: Editar
+      delete: Eliminar
+      favorite: Añadir a favoritos
     edit:
       title: Editar producto
       submit: Actualizar producto
@@ -107,6 +110,7 @@ es:
     error: Página no encontrada
     not_authorized: No tienes permiso para hacer eso
     not_logged_in: Debes de loguearte o crear una cuenta primero
+    delete_confirm: Estás seguro?
     form:
       title: Título
       description: Descripción
@@ -116,7 +120,6 @@ es:
     links:
       edit: Editar
       delete: Eliminar
-      delete_confirm: Estás seguro?
       # cambiar esto y moverlos para su respectico padre
       new_product: Añadir producto
       new_category: Añadir categoría

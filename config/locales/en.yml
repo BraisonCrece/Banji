@@ -61,6 +61,9 @@ en:
       expensive: More expensive first
     show:
       view_more_products: View more products of %{username}
+      edit: Edit
+      delete: Delete
+      favorite: Add to favorites
     edit:
       title: Edit product
       submit: Update product
@@ -103,6 +106,7 @@ en:
     error: page not found
     not_authorized: You don't have pemission to do this action
     not_logged_in: You have to login or create an account
+    delete_confirm: Are you sure?
     form:
       title: Title
       description: Description
@@ -112,7 +116,6 @@ en:
     links:
       edit: Edit
       delete: Delete
-      delete_confirm: Are you sure?
       # cambiar esto y moverlos para su respectico padre
       new_product: Add product
       new_category: Add category

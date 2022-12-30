@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+manolo_wii:
+  user: manolo
+  product: Wii
+
+maruxa_pixel:
+  user: maruxa
+  product: pixel

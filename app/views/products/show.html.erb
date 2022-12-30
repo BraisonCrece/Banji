@@ -7,8 +7,10 @@
 </div>
 <p class="description"><%= @product.description %></p>
 <p class="price"><%= @product.price %>€</p>
-<%= link_to t('common.links.edit'), edit_product_path(@product) if @product.owner? %>
-<%= link_to t('common.links.delete'), product_path(@product), data: { 
+<%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
+<%= link_to t('.delete'), product_path(@product), data: { 
     turbo_method: :delete,
-    turbo_confirm: t('common.links.delete_confirm')} if @product.owner? %>
+    turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
 <%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username) %>
+<%= link_to '🤍', favorites_path(product_id: @product.id), style: 'text-decoration: none', data: { turbo_method: :post } unless @product.favorite? %>
+<%= link_to '💘', favorite_path(@product), style: 'text-decoration: none', data: { turbo_method: :delete } if @product.favorite? %>
