@@ -99,9 +99,13 @@ en:
     header:
       new_product: New product
       categories: Categories
+      favorites: My favorites
       login: Login
       register: Register
       log_out: Log out
+  favorites:
+    index:
+      title: My Favorites      
   common:
     error: page not found
     not_authorized: You don't have pemission to do this action

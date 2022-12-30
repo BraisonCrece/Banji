@@ -3,6 +3,7 @@
 <% end %>
 <%= link_to t('.new_product'), new_product_path if Current.user %>
 <%= link_to t('.categories'), categories_path if Current.user&.admin? %>
+<%= link_to t('.favorites'), favorites_path if Current.user %>
 <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } if Current.user %>
 <%= link_to t('.register'), new_user_path unless Current.user %>
 <%= link_to t('.login'), new_session_path unless Current.user %>

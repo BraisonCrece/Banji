@@ -103,9 +103,13 @@ es:
     header:
       new_product: Añadir producto
       categories: Categorías
+      favorites: Mis favoritos
       login: Login
       register: Registro
       log_out: Cerrar sesión
+  favorites:
+    index:
+      title: Mis Favoritos
   common:
     error: Página no encontrada
     not_authorized: No tienes permiso para hacer eso

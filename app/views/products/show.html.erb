@@ -12,5 +12,4 @@
     turbo_method: :delete,
     turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
 <%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username) %>
-<%= link_to '🤍', favorites_path(product_id: @product.id), style: 'text-decoration: none', data: { turbo_method: :post } unless @product.favorite %>
-<%= link_to '💘', favorite_path(@product), style: 'text-decoration: none', data: { turbo_method: :delete } if @product.favorite %>
+<%= render partial: 'favorite', locals: { product: @product } %>
