@@ -1,12 +1,12 @@
-<nav>
+<nav class="flex flex-col">
   <%= link_to root_path, class: 'inline-block' do %>
     <h1 hidden><%= t('app_name') %></h1>
-    <%= image_tag 'Banji.svg', width: "200 rem" %>
+    <%= image_tag 'Banji.svg', class: "w-80 m-auto" %>
   <% end %>
-  <%= link_to t('.new_product'), new_product_path if Current.user %>
-  <%= link_to t('.categories'), categories_path if Current.user&.admin? %>
-  <%= link_to t('.favorites'), favorites_path if Current.user %>
-  <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } if Current.user %>
-  <%= link_to t('.register'), new_user_path unless Current.user %>
-  <%= link_to t('.login'), new_session_path unless Current.user %>
+  <%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+  <%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user&.admin? %>
+  <%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+  <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+  <%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
+  <%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
 </nav>

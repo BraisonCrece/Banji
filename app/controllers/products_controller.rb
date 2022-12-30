@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   
   def index
     @categories = Category.order(:name).load_async
-    @pagy, @products = pagy_countless(FindProducts.new.call(product_filter_params), items: 12)
+    @pagy, @products = pagy_countless(FindProducts.new.call(product_filter_params).load_async, items: 12)
   end
 
   def new
@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path, notice: t('.created')
+      redirect_to products_path, notice: t('.created')
     else
       render :new, status: :unprocessable_entity
     end

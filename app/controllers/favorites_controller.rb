@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   def index
   end
-  
+
   def create
     product.favorite!
     respond_to do |format|
@@ -9,10 +9,9 @@ class FavoritesController < ApplicationController
         redirect_to product_path(product)
       end
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace('favorite', partial: 'products/favorite', locals: { product: product })
-      end      
+        render turbo_stream: turbo_stream.replace("favorite", partial: "products/favorite", locals: { product: product })
+      end
     end
-
   end
 
   def destroy
@@ -22,12 +21,10 @@ class FavoritesController < ApplicationController
         redirect_to product_path(product), status: :see_other
       end
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace('favorite', partial: 'products/favorite', locals: { product: product })
-
+        render turbo_stream: turbo_stream.replace("favorite", partial: "products/favorite", locals: { product: product })
       end
     end
   end
-
 
   private
 
