@@ -1,24 +1,26 @@
-# README
+# <img src="https://user-images.githubusercontent.com/104019638/210088704-a46dc791-b1eb-4773-b134-f71040b6e0cb.svg" width=150> - web application for buying and selling
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+During the development process, I have been able to learn a lot and delve into aspects of Ruby on Rails that I was unaware of.
 
-* Ruby version
+As well as learning to use design structures and good practices.
 
-* System dependencies
+The base application is built with the following technologies:
+- `Ruby 3.1.2`
+- `Rails 7.0.4`
+- `PostgreSQL`
+- `TailwindCSS`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## During its development I have implemented, learned and perfected :memo::
+- Infinite pagination with **Hotwire + Pagy gem** :heavy_check_mark:
+- Unit and integration **tests with Minitest** :heavy_check_mark:
+- **Query Object Pattern** :heavy_check_mark:
+- Modularize with **Concerns** :heavy_check_mark:
+- List products and favorites with **Turbo Frame** :heavy_check_mark:
+- Dynamic behavior of the favorite button with **Turbo Stream** :heavy_check_mark:
+- **Instance memoization** ( ||= operator) :heavy_check_mark:
+- Avoid **N+1 Query** :heavy_check_mark:
+- **ActiveSupport::CurrentAttributes** (Current class) :heavy_check_mark:
+- **Authentication** (no gems) :heavy_check_mark:
+- **Authorization with policies** (no gems) :heavy_check_mark:
+- Better use and understanding of **routes** :heavy_check_mark:
