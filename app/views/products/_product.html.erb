@@ -1,8 +1,11 @@
-<div class="product" style="margin-top: 2rem">
-  <div class="p_image">
-    <%= image_tag product.images[0], width: "150px", style: "border-radius: 7.5px" if product.images.attached? %>
-  </div>
-  <h2><%= product.title %></h2>
-  <p><%= product.price %>€</p>
-  <%= link_to t('common.links.see_more'), product_path(product) %>
+<div class="card" style="margin-top: 2rem;">
+  <%= link_to  product_path(product) do %>
+    <div class="product_image">
+      <%= image_tag product.images[0] if product.images.attached? %>
+    </div>
+    <div class="product_info">
+      <h2><%= product.title %></h2>
+      <p><%= product.price %>€</p>
+    </div>
+  <% end %>
 </div>

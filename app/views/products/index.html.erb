@@ -20,7 +20,7 @@
     <%= render partial: 'category', collection: @categories %>
   </div>
   <h2 class="text-4xl text-center py-3"><%= t('.title') %></h2>
-  <%= turbo_frame_tag :products do %>
+  <%= turbo_frame_tag :products, class: "products" do %>
     <%= turbo_frame_tag "products-#{@pagy.page}", class: 'products' do %>
       <%= render partial: 'product', collection: @products %>
       <%= turbo_frame_tag "products-#{@pagy.next}", class: 'products', src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next %>

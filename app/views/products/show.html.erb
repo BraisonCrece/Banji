@@ -1,17 +1,15 @@
-<div class="card">
-  <h2 class="title"><%= @product.title %></h2>
-  <%# quitar los estilos en linea!!!!!!!!!! %>
-  <div style="display: flex; gap: 1rem; overflow: scroll">
-    <% @product.images.each do |image| %>
-      <%= image_tag image, style:  "width: 84%; border-radius: 7.5px; object-fit: scale-down;" if @product.images.attached? %>
-    <% end %>
-  </div>
-  <p class="description"><%= @product.description %></p>
-  <p class="price"><%= @product.price %>€</p>
-  <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
-  <%= link_to t('.delete'), product_path(@product), data: { 
+<h2 class="title"><%= @product.title %></h2>
+<%# quitar los estilos en linea!!!!!!!!!! %>
+<div style="display: flex; gap: 1rem; overflow: scroll">
+  <% @product.images.each do |image| %>
+    <%= image_tag image, style:  "width: 84%; border-radius: 7.5px; object-fit: cover;" if @product.images.attached? %>
+  <% end %>
+</div>
+<p class="description"><%= @product.description %></p>
+<p class="price"><%= @product.price %>€</p>
+<%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
+<%= link_to t('.delete'), product_path(@product), data: { 
     turbo_method: :delete,
     turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
-  <%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username) %>
-  <%= render partial: 'favorite', locals: { product: @product } %>
-</div>
+<%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username) %>
+<%= render partial: 'favorite', locals: { product: @product } %>

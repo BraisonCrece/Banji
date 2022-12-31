@@ -50,3 +50,43 @@
   width: 91%;
 }
 
+.card {
+  width: 90%;
+  padding: .7rem;
+  border: 1px solid rgba(128, 128, 128, 0.388);
+  border-radius: 0.7rem;
+  background-color: rgb(255, 238, 244);
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15rem;
+}
+
+.product_image {
+  width: 100%;
+}
+
+.product_image>img {
+  width:100%;
+  object-fit: cover;
+  border-radius: .6rem;
+}
+
+.product_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.product_info p {
+  font-size: x-large;
+}
+
+.card h2 {
+  padding: .5rem 0;
+  font-size: xx-large;
+}
+
