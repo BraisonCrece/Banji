@@ -1,24 +1,25 @@
 <%= turbo_frame_tag 'home' do %>
-  <h1><%= t('.title') %></h1>
   <%= form_with url: products_path, 
       method: :get, 
       id: 'price_filter',
+      class: "flex flex-col items-center gap-2",
       data: { 
         controller: 'products', 
         action: 'keypress->products#enterToSubmit' 
       } do |form| %>
-    <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text] %>
-    <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price] %>
-    <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price] %>
+    <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "form_input" %>
+    <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "form_input" %>
+    <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "form_input" %>
     <%= form.select :order_by, 
-      options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]), 
+      options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]),
       {},
       { onChange: "this.form.requestSubmit()"} %>
   <% end %>
-  <div class="categories" style="display: flex; gap: 1.5rem">
+  <div class="categories flex gap-6 overflow-x-auto text-2xl py-3 mx-8 ">
     <%= link_to t('.all'), products_path %>
     <%= render partial: 'category', collection: @categories %>
   </div>
+  <h2 class="text-4xl text-center py-3"><%= t('.title') %></h2>
   <%= turbo_frame_tag :products do %>
     <%= turbo_frame_tag "products-#{@pagy.page}", class: 'products' do %>
       <%= render partial: 'product', collection: @products %>

@@ -45,3 +45,8 @@
   display: none;
 }
 
+.form_input, #order_by {
+  border-radius: 15px;
+  width: 91%;
+}
+
