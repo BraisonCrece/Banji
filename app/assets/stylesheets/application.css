@@ -25,12 +25,12 @@
 }
 
 .menu_icon {
-  width: 3.5rem;
+  width: 2rem;
   transform: rotateX(180deg);
 }
 
 .menu_icon_up {
-  width: 3.5rem;
+  width: 2rem;
 }
 
 .none {
@@ -51,15 +51,16 @@
 }
 
 .card {
-  width: 90%;
-  padding: .7rem;
-  border: 1px solid rgba(128, 128, 128, 0.388);
+  /* width: 90%; */
+  /* padding: .7rem; */
+  /* border: 1px solid rgba(128, 128, 128, 0.388); */
   border-radius: 0.7rem;
   background-color: rgb(255, 238, 244);
 }
 
 .products {
   display: flex;
+  gap: 1rem;
   flex-direction: column;
   align-items: center;
   margin-bottom: 15rem;

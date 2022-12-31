@@ -4,7 +4,7 @@
     <%= image_tag 'Banji.svg', class: "w-80 m-auto" %>
   <% end %>
   <span id="menu" aria-label="menu button" class="down_menu" >
-    <%= image_tag 'down_arrow_1.svg', class: "menu_icon trans", data: { action: "click->menu#toggle" } %>
+    <%= image_tag 'up-arrow.svg', class: "menu_icon trans", data: { action: "click->menu#toggle" } %>
   </span>
   <div aria-label="nav links" class="flex flex-col menu_links close trans">
     <%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
