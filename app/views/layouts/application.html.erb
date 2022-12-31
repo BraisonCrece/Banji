@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <%= render 'shared/flash' %>
+  <body class="bg-red-100">
     <%= render 'shared/header' %>
+    <%= render 'shared/flash' if notice or alert %>
     <%= yield %>
   </body>
 </html>

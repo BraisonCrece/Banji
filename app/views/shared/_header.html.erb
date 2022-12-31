@@ -1,12 +1,17 @@
-<nav class="flex flex-col">
+<nav class="flex flex-col pb-8" data-controller="menu">
   <%= link_to root_path, class: 'inline-block' do %>
     <h1 hidden><%= t('app_name') %></h1>
     <%= image_tag 'Banji.svg', class: "w-80 m-auto" %>
   <% end %>
-  <%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-  <%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user&.admin? %>
-  <%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-  <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-  <%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
-  <%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
+  <span id="menu" aria-label="menu button" class="down_menu" >
+    <%= image_tag 'down_arrow_1.svg', class: "menu_icon trans", data: { action: "click->menu#toggle" } %>
+  </span>
+  <div aria-label="nav links" class="flex flex-col menu_links close trans">
+    <%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+    <%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user&.admin? %>
+    <%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+    <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
+    <%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
+    <%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
+  </div>
 </nav>

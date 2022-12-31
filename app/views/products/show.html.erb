@@ -1,9 +1,9 @@
 <div class="card">
   <h2 class="title"><%= @product.title %></h2>
   <%# quitar los estilos en linea!!!!!!!!!! %>
-  <div style="display: flex; gap: 1rem">
+  <div style="display: flex; gap: 1rem; overflow: scroll">
     <% @product.images.each do |image| %>
-      <%= image_tag image, style:  "width: 10rem; border-radius: 7.5px; object-fit: scale-down;" if @product.images.attached? %>
+      <%= image_tag image, style:  "width: 84%; border-radius: 7.5px; object-fit: scale-down;" if @product.images.attached? %>
     <% end %>
   </div>
   <p class="description"><%= @product.description %></p>
