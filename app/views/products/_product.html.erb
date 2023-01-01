@@ -1,6 +1,6 @@
-<div class="card w-[97%] p-3 border-solid border-1 border-gray-300">
+<div class="w-[97%] sm:w-[32%] h-72 p-3 border-solid border-1 border-gray-300 bg-white rounded-lg">
   <%= link_to  product_path(product) do %>
-    <div class="product_image first:mt-3">
+    <div class="product_image">
       <%= image_tag product.images[0] if product.images.attached? %>
     </div>
     <div class="product_info">

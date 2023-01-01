@@ -7,22 +7,24 @@
         controller: 'products', 
         action: 'keypress->products#enterToSubmit' 
       } do |form| %>
-    <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "form_input" %>
-    <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "form_input" %>
-    <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "form_input" %>
-    <%= form.select :order_by, 
+    <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "rounded-lg w-11/12" %>
+    <div class="flex flex-col sm:flex-row gap-2 w-11/12 justify-around">
+      <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "rounded-lg w-full sm:w-1/3" %>
+      <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "rounded-lg w-full sm:w-1/3" %>
+      <%= form.select :order_by, 
       options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]),
       {},
-      { onChange: "this.form.requestSubmit()"} %>
+      { onChange: "this.form.requestSubmit()", class: "rounded-lg w-full sm:w-1/3"} %>
+    </div>
   <% end %>
   <div class="categories flex gap-6 overflow-x-auto text-2xl py-3 mx-8 ">
     <%= link_to t('.all'), products_path %>
     <%= render partial: 'category', collection: @categories %>
   </div>
-  <%= turbo_frame_tag :products, class: "products" do %>
-    <%= turbo_frame_tag "products-#{@pagy.page}", class: 'products' do %>
+  <%= turbo_frame_tag :products, class: "flex gap-1 gap-2 flex-col items-center mb-4 sm:flex-row sm:flex-wrap sm:w-full justify-center" do %>
+    <%= turbo_frame_tag "products-#{@pagy.page}", class: 'flex gap-2 flex-col items-center mb-4 sm:flex-row sm:flex-wrap sm:w-full justify-center' do %>
       <%= render partial: 'product', collection: @products %>
-      <%= turbo_frame_tag "products-#{@pagy.next}", class: 'products', src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next %>
+      <%= turbo_frame_tag "products-#{@pagy.next}", class: 'flex gap-2 flex-col items-center mb-4 sm:flex-row sm:flex-wrap sm:w-full justify-center', src: pagy_url_for(@pagy, @pagy.next), loading: :lazy if @pagy.next %>
     <% end %>
   <% end %>
 <% end %>
