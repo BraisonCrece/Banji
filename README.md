@@ -1,7 +1,7 @@
-# <img src="https://user-images.githubusercontent.com/104019638/210088704-a46dc791-b1eb-4773-b134-f71040b6e0cb.svg" width=150> - web application for buying and selling
+# <img src="https://user-images.githubusercontent.com/104019638/210088704-a46dc791-b1eb-4773-b134-f71040b6e0cb.svg" width=150> - web application for buy and sell
 
 
-During the development process, I have been able to learn a lot and delve into aspects of Ruby on Rails that I was unaware of.
+During the development process, I have learned a lot and delve into aspects of Ruby on Rails that I was unaware of.
 
 As well as learning to use design structures and good practices.
 
