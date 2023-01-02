@@ -6,7 +6,7 @@
   <% end %>
 </div>
 <p class="description"><%= @product.description %></p>
-<p class="price"><%= @product.price %>€</p>
+<p class="price"><%= @product.price %><sup>€</sup></p>
 <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
 <%= link_to t('.delete'), product_path(@product), data: { 
     turbo_method: :delete,

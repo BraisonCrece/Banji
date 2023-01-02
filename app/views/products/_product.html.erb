@@ -1,10 +1,10 @@
-<div class="w-[97%] sm:w-[32%] h-72 p-3 border-solid border-1 border-gray-300 bg-white rounded-lg">
+<div class="w-[97%] sm:w-[32%] h-72 p-3 border-solid border-1 border-gray-400 bg-white rounded-lg shadow-md">
   <%= link_to  product_path(product) do %>
-    <div class="product_image">
-      <%= image_tag product.images[0] if product.images.attached? %>
+    <div class="w-full h-5/6 overflow-hidden rounded-t-lg mb-3">
+      <%= image_tag product.images[0], class: "object-cover object-center rounded-t-lg w-full h-full" if product.images.attached? %>
     </div>
-    <div class="product_info">
-      <h2><%= product.title %></h2>
+    <div class="flex justify-between items-end">
+      <p class="truncate text-xl font-bold"><%= product.title %></p>
       <p><%= product.price %>€</p>
     </div>
   <% end %>
