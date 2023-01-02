@@ -1,4 +1,4 @@
-<div class="w-[97%] sm:w-[32%] h-72 p-3 border-solid border-1 border-gray-400 bg-white rounded-lg shadow-md">
+<div class="w-[97%] sm:w-[calc(33.33333%_-_.5rem)] lg:w-[calc(25%_-_.5rem)] h-72 p-3 border-solid border-1 border-gray-400 bg-white rounded-lg shadow-md lg:hover:scale-[1.02] lg:hover: transition-all duration-300 ease-in-out">
   <%= link_to  product_path(product) do %>
     <div class="w-full h-5/6 overflow-hidden rounded-t-lg mb-3">
       <%= image_tag product.images[0], class: "object-cover object-center rounded-t-lg w-full h-full" if product.images.attached? %>
