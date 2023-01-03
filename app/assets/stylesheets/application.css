@@ -14,65 +14,7 @@
  *= require_self
  */
 
-.down_menu {
-  width: fit-content;
-  height: auto;
-  align-self: center;
-}
 
-.trans {
-  transition: all 0.5s ease;
-}
-
-.menu_icon {
-  width: 2rem;
-  transform: rotateX(180deg);
-}
-
-.menu_icon_up {
-  width: 2rem;
-}
-
-.none {
-  display: none;
-}
-
-#menu {
-  z-index: 1;
-}
-
-.close {
-  display: none;
-}
-
-/* .products {
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 15rem;
-} */
-
-/* .product_image {
-  width: 100%;
-  height: 90% ;
-  overflow: hidden;
-} */
-
-/* .product_image>img {
-  width:100%;
-  height: auto;
-  object-fit: fill;
-  object-position: center;
-  border-radius: .6rem;
-  
-} */
-
-/* .product_info {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-} */
 
 .product_info p {
   font-size: x-large;

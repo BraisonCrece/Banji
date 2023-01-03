@@ -1,17 +1,17 @@
-<nav class="flex flex-col pb-8" data-controller="menu">
-  <%= link_to root_path, class: 'inline-block' do %>
-    <h1 hidden><%= t('app_name') %></h1>
-    <%= image_tag 'Banji.svg', class: "w-80 m-auto" %>
-  <% end %>
-  <span id="menu" aria-label="menu button" class="down_menu" >
-    <%= image_tag 'up-arrow.svg', class: "menu_icon trans", data: { action: "click->menu#toggle" } %>
-  </span>
-  <div aria-label="nav links" class="flex flex-col menu_links close trans">
-    <%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-    <%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user&.admin? %>
-    <%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-    <%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-sky-100" if Current.user %>
-    <%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
-    <%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-sky-100" unless Current.user %>
+<nav data-controller="menu" class="sm:sticky sm:top-0 sm:bg-red-200 sm:z-50 sm:shadow-lg sm:mb-9">
+  <div class="header flex justify-between items-center">
+    <%= link_to root_path, class: 'inline-block' do %>
+      <h1 hidden><%= t('app_name') %></h1>
+      <%= image_tag 'Banji.svg', width: 250 %>
+    <% end %>
+    <button class="mr-8 sm:hidden" data-action="click->menu#toggle"><%= image_tag 'menu.svg', width: 40, heigth: 40, class: 'select-none' %></button>
+    <div class="hidden sm:block sm:flex gap-6" aria-label="nav links">
+      <%= render '/shared/items' %>
+    </div>
+  </div>
+  <%# mobile menu %>
+  <div class="sm:hidden absolute bg-white top-0 right-0 shadow z-10 h-full flex flex-col min-w-[45%] overflow-y-scroll ease-in-out duration-300 p-5 translate-x-full" data-menu-target="items">
+    <button class="mr-8 mb-3 sm:hidden select-none" data-action="click->menu#toggle"><%= image_tag 'close.svg', width: 40, heigth: 40, class: 'select-none' %></button>
+    <%= render '/shared/items' %>
   </div>
 </nav>

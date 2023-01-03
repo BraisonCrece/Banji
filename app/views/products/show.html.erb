@@ -1,15 +1,18 @@
-<h2 class="title"><%= @product.title %></h2>
-<%# quitar los estilos en linea!!!!!!!!!! %>
-<div class="flex p-5 h-auto gap-6 overflow-scroll overscroll-x-contain snap-x">
+<h2 class="text-4xl text-center border-b border-black "><%= @product.title %></h2>
+<div class="border-b border-black flex justify-center w-full h-auto p-5 gap-6 overflow-scroll-auto overscroll-x-contain snap-x">
   <% @product.images.each do |image| %>
-    <%= image_tag image, class: "w-full rounded snap-center object-cover shadow-lg" if @product.images.attached? %>
+    <%= image_tag image, class: "w-1/5 rounded-lg drop-shadow-lg snap-center object-cover shadow-lg" if @product.images.attached? %>
   <% end %>
 </div>
-<p class="description"><%= @product.description %></p>
-<p class="price"><%= @product.price %><sup>€</sup></p>
-<%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
-<%= link_to t('.delete'), product_path(@product), data: { 
+<div class="rounded-lg bg-slate-50 p-4 flex justify-between">
+  <p class="text-lg"><%= @product.description %></p>
+  <p class="p-4 bg-slate-200 rounded-xl text-slate-600 font-semibold text-3xl"><%= @product.price %><sup>€</sup></p>
+</div>
+<div class="mb-12">
+  <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
+  <%= link_to t('.delete'), product_path(@product), data: { 
     turbo_method: :delete,
     turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
-<%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username) %>
-<%= render partial: 'favorite', locals: { product: @product } %>
+  <%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username), class: "hover:text-red-600 text-xl" %>
+  <%= render partial: 'favorite', locals: { product: @product } %>
+</div>
