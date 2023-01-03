@@ -1,6 +1,6 @@
-<%= link_to t('.new_product'), new_product_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:hover:text-blue-600" if Current.user %>
-<%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:hover:text-blue-600" if Current.user&.admin? %>
-<%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:hover:text-blue-600" if Current.user %>
-<%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:mr-6 sm:hover:text-red-600" if Current.user %>
-<%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:hover:text-blue-600" unless Current.user %>
-<%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:text-3xl sm:mr-6 sm:hover:text-blue-600" unless Current.user %>
+<%= link_to t('.new_product'), new_product_path, data: { turbo_frame: 'modal' } , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:hover:text-blue-600" if Current.user %>
+<%= link_to t('.categories'), categories_path, class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:hover:text-blue-600" if Current.user&.admin? %>
+<%= link_to t('.favorites'), favorites_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:hover:text-blue-600" if Current.user %>
+<%= link_to t('.log_out'), session_path(Current.user.id), data: { turbo_method: :delete } , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:mr-6 sm:hover:text-red-600" if Current.user %>
+<%= link_to t('.register'), new_user_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:hover:text-blue-600" unless Current.user %>
+<%= link_to t('.login'), new_session_path , class: "text-center py-3 text-2xl border-y border-gray-50 sm:border-none sm:font-light sm:mr-6 sm:hover:text-blue-600" unless Current.user %>

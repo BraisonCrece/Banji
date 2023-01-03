@@ -1,33 +1,24 @@
-<%= form_with model: product, class: 'formulario' do |form| %>
-  <% product.errors.full_messages.each do |error|  %>
-    <p class="error_message"><%= error %></p>
+<%= form_with model: product do |form| %>
+  <% @product.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
   <% end %>
   <div>
-    <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
-    <div class="mt-1 flex rounded-md shadow-sm">
-      <%= form.text_field :title, class: "block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
-    </div>
+    <%= form.text_field :title, placeholder: t(".title_placeholder"), class: "rounded-2xl border-gray-200 mb-4 w-full" %>
   </div>
   <div>
-    <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
-    <div class="mt-1">
-      <%= form.text_area :description, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" %>
-    </div>
-    <p class="mt-2 text-sm text-gray-500"><%= p('.text_area_description') %></p>
+    <%= form.text_area :description, placeholder: t(".description_placeholder"), class: "rounded-2xl border-gray-200 mb-4 w-full", rows: 5 %>
   </div>
   <div>
-    <%= form.label :category_id, class: "block text-sm font-medium text-gray-700" %>
-    <%= form.collection_select :category_id, Category.all.order(:name), :id, :name, class: "outline-gray" %>
+    <%= form.number_field :price, placeholder: t(".price_placeholder"), class: "rounded-2xl border-gray-200 mb-4 w-full" %>
   </div>
   <div>
-    <%= form.label :price, class: "block text-sm font-medium text-gray-700" %>
-    <%= form.number_field :price %>
+    <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name, { prompt: t(".category_placeholder") }, { class: "rounded-2xl border-gray-200 mb-4 w-full text-gray-500"} %>
   </div>
-  <div>
-    <%= form.label :images, class: "block text-sm font-medium text-gray-700"%>
+  <div class="rounded-2xl border-gray-200 mb-4 w-full border-[1px] p-2 text-gray-500">
+    <%= form.label :images %>
     <%= form.file_field :images, multiple: true %>
   </div>
-  <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-    <%= form.submit submit_message, class: "inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
-  </div>
+  <%= form.submit t('.submit'), class: "px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-2xl cursor-pointer shadow-sm" %>
 <% end %>

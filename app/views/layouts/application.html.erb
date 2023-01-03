@@ -18,5 +18,6 @@
     <div class="lg:container xl:container 2xl:container lg:mx-auto 2xl:mx-auto xl:mx-auto">
       <%= yield %>
     </div>
+    <%= turbo_frame_tag 'modal' %>
   </body>
 </html>

@@ -54,6 +54,12 @@ es:
       destroy:
         log_out: Hasta luego!
   products:
+    form:
+      submit: Añadir
+      category_placeholder: Selecciona una categoría
+      price_placeholder: Precio
+      description_placeholder: Añade una descripción
+      title_placeholder: Añáde un título
     index:
       title: Productos
       all: Todos
