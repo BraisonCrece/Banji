@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag 'banji_favicon.png' %>
     <%= javascript_importmap_tags %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,7 @@
   <body class="bg-red-100">
     <%= render 'shared/header' %>
     <%= render 'shared/flash' if notice or alert %>
-    <div class="lg:container xl:container 2xl:container lg:mx-auto 2xl:mx-auto xl:mx-auto">
+    <div class="lg:container lg:mx-auto">
       <%= yield %>
     </div>
     <%= turbo_frame_tag 'modal' %>

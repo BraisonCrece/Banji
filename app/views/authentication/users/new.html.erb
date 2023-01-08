@@ -1,20 +1,24 @@
-<%= form_with model: @user, class: 'formulario' do |form| %>
-  <% @user.errors.full_messages.each do |error|  %>
-    <p class="error_message"><%= error %></p>
+<div class="flex items-center justify-center my-8">
+  <%= form_with model: @user, class: 'formulario' do |form| %>
+    <% @user.errors.full_messages.each do |error|  %>
+      <p class="error_message"><%= error %></p>
+    <% end %>
+    <div class="-space-y-px rounded-md shadow-sm">
+      <div>
+        <%= form.label :email, class: "sr-only" %>
+        <%= form.email_field :email, required: true, placeholder: "Email", class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-400 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+      </div>
+      <div>
+        <%= form.label :username, class: "sr-only" %>
+        <%= form.text_field :username, required: true, placeholder: "Username", class: "relative block w-full appearance-none rounded-none border border-gray-400 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+      </div>
+      <div>
+        <%= form.label :password, class: "sr-only" %>
+        <%= form.password_field :password, placeholder: "Password", required: true, class: "relative block w-full appearance-none rounded-none rounded-b-md border border-gray-400 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+      </div>
+    </div>
+    <div>
+      <%= form.submit "Registrarse", class: "group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 my-2 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+    </div>
   <% end %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
-  </div>
-  <div>
-    <%= form.label :username %>
-    <%= form.text_field :username, required: true %>
-  </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

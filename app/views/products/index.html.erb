@@ -17,7 +17,7 @@
       { onChange: "this.form.requestSubmit()", class: "rounded-lg w-full sm:w-1/3 lg:w-1/4"} %>
     </div>
   <% end %>
-  <div class="flex gap-3 overflow-x-auto snap-x text-2xl py-3 w-full lg:justify-center">
+  <div class="flex gap-3 overflow-x-auto snap-x text-2xl py-3 w-full sm:justify-center">
     <%= link_to t('.all'), products_path, class: "p-2 bg-slate-100 rounded-full snap-center ml-4 hover:bg-slate-200" %>
     <%= render partial: 'category', collection: @categories %>
   </div>

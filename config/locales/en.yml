@@ -96,10 +96,10 @@ en:
     create:
       created: You are registered correctly!
   shared:
-    header:
+    items:
       new_product: New product
       categories: Categories
-      favorites: My favorites
+      favorites: Favorites
       login: Login
       register: Register
       log_out: Log out

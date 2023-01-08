@@ -106,13 +106,13 @@ es:
     create:
       created: Te has registrado correctamente!
   shared:
-    header:
-      new_product: Añadir producto
+    items:
+      new_product: Vender
       categories: Categorías
-      favorites: Mis favoritos
+      favorites: Favoritos
       login: Login
       register: Registro
-      log_out: Cerrar sesión
+      log_out: Salir
   favorites:
     index:
       title: Mis Favoritos
