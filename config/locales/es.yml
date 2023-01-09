@@ -79,6 +79,7 @@ es:
       title: Editar producto
       submit: Actualizar producto
     new:
+      title: Añadir producto
       add: Añadir producto
       submit: Añadir producto
     create: 

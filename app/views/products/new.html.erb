@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "modal" do %>
   <div data-controller="modal">
-    <div data-action="click->modal#close" class="fixed z-10 w-full h-full top-0 left-0 bg-black bg-opacity-40"></div>
-    <div data-modal-target="sidebar" class="fixed top-[138.61px] right-0 z-20 w-1/2 sm:w-3/6 lg:w-2/6 h-full bg-white overflow-y-scroll shadow flex flex-col ease-in-out duration-300 p-5 translate-x-full">
+    <div data-action="click->modal#close" class="fixed z-50 w-full h-full top-0 left-0 bg-black bg-opacity-40"></div>
+    <div data-modal-target="sidebar" class="fixed top-0 right-0 z-50 w-full h-screen sm:w-3/6 lg:w-2/6 bg-white overflow-y-scroll shadow flex flex-col ease-in-out duration-300 p-5 translate-x-full">
       <p class="cursor-pointer mb-4" data-action="click->modal#close">❌</p>
       <h2 class="font-bold mb-4"><%= t('.title') %></h2>
       <%= render partial: 'form', locals: { product: @product, submit_message: t('.submit')} %>

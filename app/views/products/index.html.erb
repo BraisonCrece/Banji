@@ -1,16 +1,9 @@
 <%= turbo_frame_tag 'home' do %>
-  <%= form_with url: products_path, 
-      method: :get, 
-      id: 'price_filter',
-      class: "flex flex-col items-center gap-2",
-      data: { 
-        controller: 'products', 
-        action: 'keypress->products#enterToSubmit' 
-      } do |form| %>
+  <%= form_with url: products_path, method: :get, id: 'price_filter', class: "flex flex-col items-center gap-2" do |form| %>
     <div class="flex flex-col sm:flex-row gap-2 w-11/12 justify-around">
-      <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "rounded-lg w-full lg:w-1/4" %>
-      <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "rounded-lg w-full sm:w-1/3 lg:w-1/4" %>
-      <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "rounded-lg w-full sm:w-1/3 lg:w-1/4" %>
+      <%= form.text_field :query_text, onChange: 'this.form.requestSubmit()', placeholder: t('.query_text'), value: params[:query_text], class: "rounded-lg w-full lg:w-1/4" %>
+      <%= form.number_field :min_price, onChange: 'this.form.requestSubmit()', placeholder: t('.min_price'), value: params[:min_price], class: "rounded-lg w-full sm:w-1/3 lg:w-1/4" %>
+      <%= form.number_field :max_price, onChange: 'this.form.requestSubmit()', placeholder: t('.max_price'), value: params[:max_price], class: "rounded-lg w-full sm:w-1/3 lg:w-1/4" %>
       <%= form.select :order_by, 
       options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]),
       {},

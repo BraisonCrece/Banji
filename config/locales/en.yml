@@ -68,6 +68,7 @@ en:
       title: Edit product
       submit: Update product
     new:
+      title: Add product
       add: Add product
       submit: Add product
     create: 
