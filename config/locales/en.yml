@@ -52,8 +52,8 @@ en:
     index:
       title: Products
       all: All
-      max_price: Max price
-      min_price: Min price
+      max_price: Max
+      min_price: Min
       submit_price_filter: Price filter
       query_text: What are you looking for?
       newest: Newest first

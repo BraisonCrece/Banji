@@ -63,8 +63,8 @@ es:
     index:
       title: Productos
       all: Todos
-      max_price: Precio máximo
-      min_price: Precio mínimo
+      max_price: Máx
+      min_price: Min
       submit_price_filter: Filtrar por precio
       query_text: Que estás buscando?
       newest: Recientes primero
