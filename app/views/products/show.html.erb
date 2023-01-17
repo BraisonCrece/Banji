@@ -1,13 +1,27 @@
 <div data-controller="gallery" class="scroll-smooth">
-  <div class="flex mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto">
-    <%= image_tag @product.user.avatar, class: "rounded-full w-10 h-10 object-cover" %>
-    <h2 class="text-3xl"><%= @product.title %></h2>
-  </div>
-  <div class="lg:flex lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
+  <%= link_to user_path(@product.user.username), class: "hover:text-red-600 text-xl" do %>
+    <div class="flex mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto justify-between">
+      <div class="flex items-center">
+        <%= image_tag @product.user.avatar, class: "rounded-full w-10 h-10 object-cover" %>
+        <div>
+          <span class="flex flex-col ml-4 justify-evenly">
+            <span class="font-bold"><%= @product.user.username %></span>
+            <span><%= @product.user.email %></span>
+          </span>
+        </div>
+      </div>
+      <!-- n days ago -->
+      <span class="flex flex-col items-end text-xs self-end">
+        <h2 class="text-2xl"><%= @product.title %></h2>
+        Hace <%= I18n.with_locale(:es) { time_ago_in_words(@product.created_at) }  %>
+      </span>
+    </div>
+  <% end %>
+  <div class="lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
     <div class="carrusel w-[98%] m-auto" >
-      <div class="flex gap-4 items-center m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
+      <div class="flex justify-start gap-4 m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
         <% @product.images.each_with_index do |image, index| %>
-          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex justify-center snap-center object-cover object-center touch-pan-x cursor-grab select-none" if @product.images.attached? %>
+          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
         <% end %>
       </div>
     </div>
@@ -17,16 +31,15 @@
       <% end %>
     </ul>
   </div>
-  <div class="rounded-lg bg-slate-50 p-4 w-[23rem] sm:w-[46rem] m-auto flex justify-between">
+  <div class="rounded-lg bg-slate-50 p-4 w-[98%] m-auto flex justify-between">
     <p class="text-lg"><%= @product.description %></p>
     <div class="flex flex-col items-end gap-2">
       <%= render partial: 'favorite', locals: { product: @product } %>
       <p class="inline h-fit p-4 bg-slate-200 rounded-xl text-slate-600 font-semibold text-3xl"><%= @product.price %><sup>€</sup></p>
     </div>
   </div>
-  <div class="mb-12 w-[23rem] sm:w-[46rem] m-auto">
+  <div class="mb-12 w-[98%] m-auto">
     <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
     <%= link_to t('.delete'), product_path(@product), data: { turbo_method: :delete, turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
-    <%= link_to t('.view_more_products', username: @product.user.username ), user_path(@product.user.username), class: "hover:text-red-600 text-xl" %>
   </div>
 </div>
