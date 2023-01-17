@@ -6,7 +6,7 @@
         <div>
           <span class="flex flex-col ml-4 justify-evenly">
             <span class="font-bold"><%= @product.user.username %></span>
-            <span><%= @product.user.email %></span>
+            <span class="text-xs"><%= @product.user.email %></span>
           </span>
         </div>
       </div>
@@ -20,7 +20,7 @@
     <div class="carrusel w-[98%] m-auto" >
       <div class="flex justify-start gap-4 m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
         <% @product.images.each_with_index do |image, index| %>
-          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
+          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-full rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
         <% end %>
       </div>
     </div>

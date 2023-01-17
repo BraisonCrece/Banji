@@ -3,7 +3,7 @@
     <h1 hidden><%= t('app_name') %></h1>
     <%= image_tag 'Banji.svg', width: 150 %>
   <% end %>
-  <button class="mr-8 sm:hidden" data-action="click->menu#toggle"><%= image_tag 'menu.svg', width: 40, heigth: 40, class: 'select-none' %></button>
+  <button class="mr-5 sm:hidden" data-action="click->menu#toggle"><%= image_tag 'menu.svg', width: 40, heigth: 40, class: 'select-none' %></button>
   <div class="hidden sm:flex sm:items-center gap-6" aria-label="nav links">
     <%= render '/shared/items' %>
   </div>
