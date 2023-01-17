@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one_attached :avatar
+  # by default the user will have the image default.jpg
+  # if the user doesn't upload a picture
+  # if the user uploads a picture, the image will be replaced
+  # by the picture uploaded
+  has_one_attached :avatar, dependent: :destroy
   validates :username, presence: true, uniqueness: true,
                        length: { in: 5..15 },
                        format: {

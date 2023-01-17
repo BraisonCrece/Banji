@@ -101,6 +101,8 @@ en:
       new_product: New product
       categories: Categories
       favorites: Favorites
+      my_profile: My profile
+                                                                
       login: Login
       register: Register
       log_out: Log out

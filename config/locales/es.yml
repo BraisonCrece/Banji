@@ -111,6 +111,7 @@ es:
       new_product: Vender
       categories: Categorías
       favorites: Favoritos
+      my_profile: Mi perfil
       login: Login
       register: Registro
       log_out: Salir

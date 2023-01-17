@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
   belongs_to :category
   belongs_to :user, default: -> { Current.user }
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
 
   ORDER_BY = {
     "newest" => "created_at DESC",

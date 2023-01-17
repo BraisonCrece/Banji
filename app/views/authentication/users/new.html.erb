@@ -3,7 +3,7 @@
     <% @user.errors.full_messages.each do |error|  %>
       <p class="error_message"><%= error %></p>
     <% end %>
-    <div class="-space-y-px rounded-md shadow-sm">
+    <div class="-space-y-px rounded-md shadow-sm flex flex-col items-center">
       <div>
         <%= form.label :email, class: "sr-only" %>
         <%= form.email_field :email, required: true, placeholder: "Email", class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-400 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>

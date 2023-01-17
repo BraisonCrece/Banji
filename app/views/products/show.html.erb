@@ -1,13 +1,18 @@
 <div data-controller="gallery">
   <h2 class="text-4xl text-center border-b border-black "><%= @product.title %></h2>
   <div class="lg:flex lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
-    <a href="#" data-action="click->gallery#moveLeft" class="hidden md:block"> <%= image_tag 'left-arrow.png', width: "50px" %> </a>
-    <div class="flex gap-4 items-center m-auto w-[23rem] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x my-8 rounded" data-gallery-target="images_gallery">
-      <% @product.images.each do |image| %>
-        <%= image_tag image, class: "min-w-[23rem] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex justify-center items-center snap-center object-cover object-center touch-pan-x cursor-grab select-none" if @product.images.attached? %>
-      <% end %>
+    <div class="carrusel w-[98%] m-auto">
+      <div class="flex gap-4 items-center m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mt-8 mb-3 rounded" data-gallery-target="images_gallery">
+        <% @product.images.each do |image| %>
+          <%= image_tag image, class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex justify-center items-center snap-center object-cover object-center touch-pan-x cursor-grab select-none" if @product.images.attached? %>
+        <% end %>
+      </div>
     </div>
-    <a href="#" data-action="click->gallery#moveRight" class="hidden md:block"> <%= image_tag 'right-arrow.png', width: "50px" %> </a>
+    <ul class='scroll_btn flex gap-2 justify-center mb-3'>
+      <% @product.images.each do |image| %>
+        <li class="w-[1em] h-[1em] border-orange-900 border-2 rounded-full" data-gallery-target="point"></li>
+      <% end %>
+    </ul>
   </div>
   <div class="rounded-lg bg-slate-50 p-4 w-[23rem] sm:w-[46rem] m-auto flex justify-between">
     <p class="text-lg"><%= @product.description %></p>
