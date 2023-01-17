@@ -1,19 +1,19 @@
-<div data-controller="gallery">
-  <div>
-    <%= image_tag @product.user.avatar || 'default_avatar.png' %>
-    <h2 class="text-4xl text-center border-b border-black "><%= @product.title %></h2>
+<div data-controller="gallery" class="scroll-smooth">
+  <div class="flex mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto">
+    <%= image_tag @product.user.avatar, class: "rounded-full w-10 h-10 object-cover" %>
+    <h2 class="text-3xl"><%= @product.title %></h2>
   </div>
   <div class="lg:flex lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
-    <div class="carrusel w-[98%] m-auto">
-      <div class="flex gap-4 items-center m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mt-8 mb-3 rounded" data-gallery-target="images_gallery">
-        <% @product.images.each do |image| %>
-          <%= image_tag image, class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex justify-center items-center snap-center object-cover object-center touch-pan-x cursor-grab select-none" if @product.images.attached? %>
+    <div class="carrusel w-[98%] m-auto" >
+      <div class="flex gap-4 items-center m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
+        <% @product.images.each_with_index do |image, index| %>
+          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex justify-center snap-center object-cover object-center touch-pan-x cursor-grab select-none" if @product.images.attached? %>
         <% end %>
       </div>
     </div>
-    <ul class='scroll_btn flex gap-2 justify-center mb-3'>
-      <% @product.images.each do |image| %>
-        <li class="w-[1em] h-[1em] border-orange-900 border-2 rounded-full" data-gallery-target="point"></li>
+    <ul class='scroll_btn flex gap-2 justify-center my-3'>
+      <% @product.images.each_with_index do |image, index| %>
+        <a href="#image-<%=index%>" class="w-[1em] h-[1em] border-orange-900 border-2 rounded-full" data-gallery-target="points" data-index="<%= index %>"></a>
       <% end %>
     </ul>
   </div>
