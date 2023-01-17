@@ -10,9 +10,8 @@
           </span>
         </div>
       </div>
-      <!-- n days ago -->
       <span class="flex flex-col items-end text-xs self-end">
-        <h2 class="text-2xl"><%= @product.title %></h2>
+        <h2 class="text-xl"><%= @product.title %></h2>
         Hace <%= I18n.with_locale(:es) { time_ago_in_words(@product.created_at) }  %>
       </span>
     </div>
@@ -21,7 +20,7 @@
     <div class="carrusel w-[98%] m-auto" >
       <div class="flex justify-start gap-4 m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
         <% @product.images.each_with_index do |image, index| %>
-          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] min-h-[23rem] sm:min-w-[33rem] sm:min-h-[33rem] rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
+          <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-[100%/#{@product.images.count}] rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
         <% end %>
       </div>
     </div>
@@ -38,8 +37,8 @@
       <p class="inline h-fit p-4 bg-slate-200 rounded-xl text-slate-600 font-semibold text-3xl"><%= @product.price %><sup>€</sup></p>
     </div>
   </div>
-  <div class="mb-12 w-[98%] m-auto">
-    <%= link_to t('.edit'), edit_product_path(@product) if @product.owner? %>
-    <%= link_to t('.delete'), product_path(@product), data: { turbo_method: :delete, turbo_confirm: t('common.delete_confirm')} if @product.owner? %>
+  <div class="mb-12 mt-2 w-[98%] m-auto">
+    <%= link_to t('.edit'), edit_product_path(@product), class: "inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" if @product.owner? %>
+    <%= link_to t('.delete'), product_path(@product), data: { turbo_method: :delete, turbo_confirm: t('common.delete_confirm')}, class: "inline-flex items-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" if @product.owner? %>
   </div>
 </div>
