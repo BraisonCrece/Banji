@@ -1,16 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="profileform"
-// when the user selects a new avatar image, this controller will
-// show a preview of the image before submitting the form
 export default class extends Controller {
-  static targets = ["input", "preview", "useravatar"]
-
-  togglePreview() {
-    this.useravatarTarget.classList.add("hidden")
-    this.previewTarget.classList.remove("invisible")
-    this.previewTarget.classList.remove("absolute")
-  }
+  static targets = ["input", "preview"]
 
   showPreview() {
     const file = this.inputTarget.files[0]
@@ -23,9 +14,6 @@ export default class extends Controller {
     }
 
     reader.readAsDataURL(file)
-
-    this.togglePreview()
-
   }
 
   connect() {

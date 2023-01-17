@@ -1,5 +1,8 @@
 <div data-controller="gallery">
-  <h2 class="text-4xl text-center border-b border-black "><%= @product.title %></h2>
+  <div>
+    <%= image_tag @product.user.avatar || 'default_avatar.png' %>
+    <h2 class="text-4xl text-center border-b border-black "><%= @product.title %></h2>
+  </div>
   <div class="lg:flex lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
     <div class="carrusel w-[98%] m-auto">
       <div class="flex gap-4 items-center m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mt-8 mb-3 rounded" data-gallery-target="images_gallery">

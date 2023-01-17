@@ -1,16 +1,10 @@
-<!-- Edit data user form: username, email, password, avatar -->
 <%= form_with model: @user, url: profile_path, method: :patch, local: true do |form| %>
   <div class="flex flex-col w-[95%] m-auto gap-2" data-controller="profileform">
     <div class="flex flex-col">
       <%= form.label :avatar %>
       <div class="flex items-end">
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: 'rounded-full w-20 h-20 object-cover', data: { profileform_target: 'preview' } %>
-          <%= form.file_field :avatar, class: 'p-3',data: { profileform_target: 'input' } %>
-        <% else %>
-          <%= image_tag 'default_avatar.png', class: 'rounded-full w-20 h-20 object-cover', data: { profileform_target: 'preview' } %>
-          <%= form.file_field :avatar, class: 'p-3',data: { profileform_target: 'input' } %>
-        <% end %>
+        <%= image_tag @user.avatar, class: 'rounded-full w-20 h-20 object-cover', data: { profileform_target: 'preview' } %>
+        <%= form.file_field :avatar, class: 'p-3',data: { profileform_target: 'input' } %>
       </div>
     </div>
     <div class="flex flex-col">

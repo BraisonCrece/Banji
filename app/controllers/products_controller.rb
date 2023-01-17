@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
   skip_before_action :protect_pages, only: [:index, :show]
   
   def index
@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.includes(:user).find(params[:id])
   end
 
   def edit

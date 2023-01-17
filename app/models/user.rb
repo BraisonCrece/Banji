@@ -1,10 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  # by default the user will have the image default.jpg
-  # if the user doesn't upload a picture
-  # if the user uploads a picture, the image will be replaced
-  # by the picture uploaded
   has_one_attached :avatar, dependent: :destroy
+
   validates :username, presence: true, uniqueness: true,
                        length: { in: 5..15 },
                        format: {
@@ -23,6 +20,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   before_save :downcase_attributes
+  before_validation :set_default_avatar
 
   private
 
@@ -30,4 +28,12 @@ class User < ApplicationRecord
     self.username = username.downcase
     self.email = email.downcase
   end
+
+  def set_default_avatar
+    if !self.avatar.attached?
+      file = File.open(Rails.root.join('app/assets/images','default_avatar.png'))
+      self.avatar.attach(io: file, filename: 'default_avatar.png')
+    end
+  end
+
 end

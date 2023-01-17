@@ -1,6 +1,5 @@
 <section class="flex my-6 mx-4">
-  <%= image_tag @user.avatar, class: 'rounded-full w-20 h-20 object-cover' if @user.avatar.attached? %>
-  <%= image_tag 'default_avatar.png', class: 'rounded-full w-20 h-20 object-cover' unless @user.avatar.attached? %>
+  <%= image_tag @user.avatar, class: 'rounded-full w-20 h-20 object-cover' %>
   <div class="flex flex-col ml-4 justify-evenly">
     <span><span class="font-bold">Username</span>: <%= @user.username %></span>
     <span><span class="font-bold">Email</span>: <%= @user.email %></span>
