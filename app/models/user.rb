@@ -20,7 +20,6 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   before_save :downcase_attributes
-  before_validation :set_default_avatar
 
   private
 
@@ -28,12 +27,4 @@ class User < ApplicationRecord
     self.username = username.downcase
     self.email = email.downcase
   end
-
-  def set_default_avatar
-    if !self.avatar.attached?
-      file = File.open(Rails.root.join('app/assets/images','default_avatar.png'))
-      self.avatar.attach(io: file, filename: 'default_avatar.png')
-    end
-  end
-
 end

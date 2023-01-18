@@ -11,9 +11,9 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = Current.user
-    if @user.update_columns(user_params)
-      redirect_to profile_path, notice: "Perfil actualizado correctamente"
+    @user = Current.user    
+    if @user.update(user_params)
+      redirect_to profile_path, notice: 'Profile updated successfully'
     else
       render :edit
     end
@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :avatar)
+    params.require(:user).permit(:username, :email, :password, :avatar)
   end
 
 end
