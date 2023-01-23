@@ -24,3 +24,7 @@
   padding: .5rem 0;
   font-size: xx-large;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

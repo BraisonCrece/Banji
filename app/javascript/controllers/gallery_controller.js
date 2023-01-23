@@ -21,8 +21,19 @@ export default class extends Controller {
 
         event.target.classList.add("bg-blue-500")
       });
-
     })
-  }
 
+    this.imagesGalleryTarget.addEventListener("scroll", (event) => {
+      let scroll = this.imagesGalleryTarget.scrollLeft
+      let width = this.imagesGalleryTarget.offsetWidth
+      let index = Math.round(scroll / width)
+
+      links.forEach((link) => {
+        link.classList.remove("bg-blue-500")
+      });
+
+      links[index].classList.add("bg-blue-500")
+    })
+
+  }
 }

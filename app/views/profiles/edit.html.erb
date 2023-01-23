@@ -3,7 +3,7 @@
     <div class="flex flex-col">
       <%= form.label :avatar %>
       <div class="flex items-end">
-        <%= image_tag @user.avatar || 'default_avatar.png', class: 'rounded-full w-20 h-20 object-cover', data: { profileform_target: 'preview' } %>
+        <%= image_tag @user.avatar.attached? ? @user.avatar : 'default_avatar.png' ,data: { profileform_target: 'preview' }, class: 'rounded-full w-20 h-20 object-cover' %>
         <%= form.file_field :avatar, class: 'p-3',data: { profileform_target: 'input' } %>
       </div>
     </div>

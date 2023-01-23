@@ -1,5 +1,5 @@
 <section class="flex my-6 mx-4">
-  <%= image_tag @user.avatar || 'default_avatar.png', class: 'rounded-full w-20 h-20 object-cover' %>
+  <%= image_tag @user.avatar.attached? ? @user.avatar : 'default_avatar.png' , class: 'rounded-full w-20 h-20 object-cover' %>
   <div class="flex flex-col ml-4 justify-evenly">
     <span><span class="font-bold">Username</span>: <%= @user.username %></span>
     <span><span class="font-bold">Email</span>: <%= @user.email %></span>
@@ -13,3 +13,4 @@
   <%= link_to 'Mis favoritos', products_path(favorite: true), class: 'inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2', data: { turbo_frame: 'products'} %>
 </div>
 <%= turbo_frame_tag 'products' %>
+x

@@ -2,7 +2,7 @@
   <%= link_to user_path(@product.user.username), class: "hover:text-red-600 text-xl" do %>
     <div class="flex mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto justify-between">
       <div class="flex items-center">
-        <%= image_tag @product.user.avatar, class: "rounded-full w-10 h-10 object-cover" %>
+        <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png' , class: 'rounded-full w-20 h-20 object-cover' %>
         <div>
           <span class="flex flex-col ml-4 justify-evenly">
             <span class="font-bold"><%= @product.user.username %></span>
@@ -10,15 +10,20 @@
           </span>
         </div>
       </div>
-      <span class="flex flex-col items-end text-xs self-end">
-        <h2 class="text-xl"><%= @product.title %></h2>
-        Hace <%= I18n.with_locale(:es) { time_ago_in_words(@product.created_at) }  %>
+      <span class="flex flex-col justify-end items-end text-xs self-end">
+        <div>
+          <div class="flex justify-between">
+            <h2 class="text-xl"><%= @product.title %></h2>
+            <%= render partial: 'favorite', locals: { product: @product } %>
+          </div>
+          Hace <%= I18n.with_locale(:es) { time_ago_in_words(@product.created_at) }  %>
+        </div>
       </span>
     </div>
   <% end %>
   <div class="lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">
-    <div class="carrusel w-[98%] m-auto" >
-      <div class="flex justify-start gap-4 m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded" data-gallery-target="imagesGallery" >
+    <div class="carrusel w-[98%] m-auto no-srollbar" >
+      <div class="flex justify-start gap-4 m-auto w-[<%= @product.images.count %>00%] h-[23rem] sm:w-[33rem] sm:h-[33rem] overflow-x-scroll overflow-y-hidden snap-mandatory snap-x rounded no-scrollbar" data-gallery-target="imagesGallery" >
         <% @product.images.each_with_index do |image, index| %>
           <%= image_tag image, id: "image-#{index}" , data: {data_gallery_target: "images"},class: "min-w-full rounded-lg flex object-cover object-center snap-center" if @product.images.attached? %>
         <% end %>
@@ -33,7 +38,6 @@
   <div class="rounded-lg bg-slate-50 p-4 w-[98%] m-auto flex justify-between">
     <p class="text-lg"><%= @product.description %></p>
     <div class="flex flex-col items-end gap-2">
-      <%= render partial: 'favorite', locals: { product: @product } %>
       <p class="inline h-fit p-4 bg-slate-200 rounded-xl text-slate-600 font-semibold text-3xl"><%= @product.price %><sup>€</sup></p>
     </div>
   </div>

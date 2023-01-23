@@ -1,4 +1,4 @@
-<span id="favorite">
-  <%= link_to '🤍', favorites_path(product_id: product.id), class: "no-underline select-none text-3xl relative top-0 right-0", id: 'confeti', data: { turbo_method: :post } unless product.favorite %>
-  <%= link_to '💘', favorite_path(product), class: "no-underline select-none text-3xl relative top-0 right-0", data: { turbo_method: :delete } if product.favorite %>
-</span>
+<p id="favorite">
+  <%= link_to '🤍', favorites_path(product_id: product.id), class: "no-underline select-none text-3xl", id: 'confeti', data: { turbo_method: :post } unless product.favorite %>
+  <%= link_to '💘', favorite_path(product), class: "no-underline select-none text-3xl", data: { turbo_method: :delete } if product.favorite %>
+</p>
