@@ -1,24 +1,14 @@
 <div data-controller="gallery" class="scroll-smooth">
   <%= link_to user_path(@product.user.username), class: "hover:text-red-600 text-xl" do %>
-    <div class="flex mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto justify-between">
-      <div class="flex items-center">
-        <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png' , class: 'rounded-full w-20 h-20 object-cover' %>
-        <div>
-          <span class="flex flex-col ml-4 justify-evenly">
-            <span class="font-bold"><%= @product.user.username %></span>
-            <span class="text-xs"><%= @product.user.email %></span>
-          </span>
-        </div>
-      </div>
-      <span class="flex flex-col justify-end items-end text-xs self-end">
-        <div>
-          <div class="flex justify-between">
-            <h2 class="text-xl"><%= @product.title %></h2>
-            <%= render partial: 'favorite', locals: { product: @product } %>
-          </div>
+    <div class="flex justify-between mt-4 p-2 gap-4 border-t border-zinc-500 w-[98%] m-auto ">
+      <div class="flex gap-2 items-center">
+        <%= image_tag @product.user.avatar.attached? ? @product.user.avatar : 'default_avatar.png' , class: 'rounded-full w-14 h-14 object-cover border border-black' %>
+        <div class="flex flex-col justify-between text-xs">
+          <h2 class="text-lg"><%= @product.title %></h2>
           Hace <%= I18n.with_locale(:es) { time_ago_in_words(@product.created_at) }  %>
         </div>
-      </span>
+      </div>
+      <%= render partial: 'favorite', locals: { product: @product } %>
     </div>
   <% end %>
   <div class="lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-[60rem] lg:m-auto">

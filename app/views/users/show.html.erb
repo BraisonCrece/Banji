@@ -1,4 +1,10 @@
-<div>
-  <%= @user.email %>
+<div class="flex p-2 gap-1 border-t border-zinc-500 w-[98%] m-auto items-end">
+  <%= image_tag @user.avatar.attached? ? @user.avatar : 'default_avatar.png' , class: 'rounded-full w-10 h-10 object-cover border border-black' %>
+  <div>
+    <span class="flex flex-col ml-4 justify-evenly">
+      <span class="font-bold"><%= @user.username %></span>
+      <span class="text-xs"><%= @user.email %></span>
+    </span>
+  </div>
 </div>
 <%= turbo_frame_tag :products, src: products_path(user_id: @user.id) %>

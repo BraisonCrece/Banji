@@ -14,7 +14,7 @@
       </div>
     </div>
   <% end %>
-  <div class="flex gap-2 overflow-x-auto snap-x text-2xl py-3 w-full 2xl:justify-center">
+  <div class="flex gap-2 overflow-x-auto snap-x text-2xl py-3 w-full">
     <%= link_to t('.all'), products_path, class: "inline-flex items-center rounded-3xl border border-transparent bg-indigo-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-4"  %>
     <%= render partial: 'category', collection: @categories %>
   </div>
