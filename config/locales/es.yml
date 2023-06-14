@@ -1,4 +1,20 @@
 es:
+  flipflop:
+    title: "%{application} Features"
+    feature: "Feature"
+    description: "Description"
+
+    feature_states:
+      enabled: "on"
+      disabled: "off"
+
+    clear: "clear"
+
+    # You can optionally translate the names of the chosen features, feature
+    # groups and strategies:
+
+    groups:
+      default: "Other features"
   app_name: Banji
   meta_description: Compra y vende productos de segunda mano
   activerecord:
@@ -9,12 +25,12 @@ es:
           has_one: No se puede eliminar el registro porque existe un %{record} dependiente
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
       models:
-        user: 
+        user:
           attributes:
             username:
               invalid: solo puede contener letras y números (longitud entre 5 y 15 caracteres)
               blank: es obligatorio
-            email: 
+            email:
               invalid: debe ser un email válido
               blank: es obligatorio
             password:
@@ -46,7 +62,7 @@ es:
   authentication:
     users:
       create:
-        created: Usuario registrado :D 
+        created: Usuario registrado :D
     sessions:
       create:
         created: Bienvenido!
@@ -82,7 +98,7 @@ es:
       title: Añadir producto
       add: Añadir producto
       submit: Añadir producto
-    create: 
+    create:
       created: Producto agregado con éxito
     update:
       updated: Producto actualizado con éxito
@@ -97,7 +113,7 @@ es:
     new:
       add: Añadir categoría
       submit: Añadir categoría
-    create: 
+    create:
       created: categoría creada con éxito
     update:
       updated: categoría actualizada con éxito
@@ -147,7 +163,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -173,7 +189,7 @@ es:
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo

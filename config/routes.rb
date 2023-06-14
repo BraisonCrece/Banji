@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Flipflop::Engine => "/flipflop"
   get 'favorites/create'
   get '/profile', to: 'profiles#show'
   get '/profile/edit', to: 'profiles#edit'

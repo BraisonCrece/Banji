@@ -1,19 +1,23 @@
 <%= turbo_frame_tag 'home' do %>
-  <%= form_with url: products_path, method: :get, id: 'price_filter',data: { controller: "search-options", action: "keydown.enter->search-options#submit" }, class: "flex flex-col items-center gap-2 sticky top-0 bg-red-100 py-2" do |form| %>
-    <div class="flex flex-col gap-2 w-11/12 justify-around">
-      <div class="flex w-full justify-between">
-        <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "rounded-lg w-full sticky top-2" %>
-        <%= image_tag 'chevron-down.svg',data: { action: "click->search-options#toggle", search_options_target: "image" }, class: 'ml-1 w-10 h-10 select-none cursor-pointer transition-all duration-200 ease-in' %>
-      </div>
-      <div class="flex-col gap-2 -translate-y-full hidden" data-search-options-target="searchMenu" >
-        <div class="flex gap-2">
-          <%= form.select :order_by, options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]), {}, { class: " w-full rounded-lg" } %>
-          <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "rounded-lg w-1/4" %>
-          <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "rounded-lg w-1/4" %>
+  <%# FILTER PRODUCTS BAR %>
+  <% if Flipflop.filtering_bar? %>
+    <%= form_with url: products_path, method: :get, id: 'price_filter',data: { controller: "search-options", action: "keydown.enter->search-options#submit" }, class: "flex flex-col items-center gap-2 sticky top-0 bg-red-100 py-2" do |form| %>
+      <div class="flex flex-col gap-2 w-11/12 justify-around">
+        <div class="flex w-full justify-between">
+          <%= form.text_field :query_text, placeholder: t('.query_text'), value: params[:query_text], class: "rounded-lg w-full sticky top-2" %>
+          <%= image_tag 'chevron-down.svg',data: { action: "click->search-options#toggle", search_options_target: "image" }, class: 'ml-1 w-10 h-10 select-none cursor-pointer transition-all duration-200 ease-in' %>
+        </div>
+        <div class="flex-col gap-2 -translate-y-full hidden" data-search-options-target="searchMenu" >
+          <div class="flex gap-2">
+            <%= form.select :order_by, options_for_select(Product::ORDER_BY.keys.map { |order| [t(".#{order}"), order] }, selected = params[:order_by]), {}, { class: " w-full rounded-lg" } %>
+            <%= form.number_field :min_price, placeholder: t('.min_price'), value: params[:min_price], class: "rounded-lg w-1/4" %>
+            <%= form.number_field :max_price, placeholder: t('.max_price'), value: params[:max_price], class: "rounded-lg w-1/4" %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
+  <%# END FILTER PRODUCTS BAR %>
   <div class="flex gap-2 overflow-x-auto snap-x text-2xl py-3 w-full">
     <%= link_to t('.all'), products_path, class: "inline-flex items-center rounded-3xl border border-transparent bg-indigo-600 px-4 py-2 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-4"  %>
     <%= render partial: 'category', collection: @categories %>
